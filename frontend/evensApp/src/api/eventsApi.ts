@@ -19,7 +19,7 @@ export const fetchEvent = async (id: string): Promise<Event> => {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            Autorization: `Bearer ${localStorage.getItem("authToken")}`,
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
     })
         .then((response) => {
@@ -39,7 +39,7 @@ export const fetchAllEvents = async (): Promise<Event[]> => {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            Autorization: `Bearer ${localStorage.getItem("authToken")}`,
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
     })
     .then((response) => {
@@ -82,7 +82,7 @@ export const deleteEvent = async (eventId: string) => {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-            Autorization: `Bearer ${localStorage.getItem("authToken")}`,
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
     })
         .then((response) => {
@@ -102,7 +102,7 @@ export const editEvent = async (eventId: string, request: EditEventRequest) => {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            Autorization: `Bearer ${localStorage.getItem("authToken")}`,
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
         },
         body: JSON.stringify(request),
     })

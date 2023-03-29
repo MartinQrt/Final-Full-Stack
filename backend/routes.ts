@@ -45,9 +45,10 @@ router.post("/login", async (req, res) => {
         issuedAt,
     };
 
+    
     const token = jwt.sign(userPayload, process.env.JWT_SECRET, {
         algorithm: "HS256",
-        expiresIn: process.env.JWT_EXPIRIES_IN,
+        expiresIn: process.env.JWT_EXPIRES_IN,
     });
 
     const response = {
@@ -108,19 +109,19 @@ router.post(
 );
 
 router.put(
-    "/events/:id",
-    isLoggedIn,
-    async (req: TypedRequest<UpdateEventRequest>, res) => {
-      const id = req.params.id;
-  
-      const updatedEvent = await EventsModel.findOneAndUpdate(
-        { _id: id },
-        { ...req.body }
-      );
-  
-      return res.send(updatedEvent).end();
-    }
-  );
+  "/events/:id",
+  isLoggedIn,
+  async (req: TypedRequest<UpdateEventRequest>, res) => {
+    const id = req.params.id;
+
+    const updatedEvent = await EventsModel.findOneAndUpdate(
+      { _id: id },
+      { ...req.body }
+    );
+
+    return res.send(updatedEvent).end();
+  }
+);
   
   router.put(
     "/participants/:id",
@@ -197,9 +198,9 @@ router.put(
     });
   
     await event.delete();
-  await Promise.all(
-    eventParticipants.map((participant) => participant.delete())
-  );
+    await Promise.all(
+      eventParticipants.map((participant) => participant.delete())
+    );
   
     return res.status(200).send({}).end();
   });
