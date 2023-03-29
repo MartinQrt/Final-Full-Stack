@@ -1,0 +1,23 @@
+.addButton {
+    margin-top: 16px !important;
+}
+
+.event-form {
+    flex-direction: column;
+    display: flex;
+    width: 360px;
+}
+
+.action-cell {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-cell>* {
+    cursor: pointer;
+    margin: 12px;
+}
+
+.action-cell> :first-child {
+    margin-left: 0;
+}

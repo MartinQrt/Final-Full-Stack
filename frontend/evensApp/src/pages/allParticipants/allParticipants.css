@@ -1,0 +1,13 @@
+.action-cell {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-cell > * {
+    cursor: pointer;
+    margin: 12px;
+}
+
+.action-cell > :first-child {
+    margin-left: 0;
+}

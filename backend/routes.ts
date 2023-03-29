@@ -79,7 +79,7 @@ router.post(
     async (req: TypedRequest<CreateParticipantRequest>, res) => {
         const errors = validationResult(req);
 
-        if (!errors.isEmty()) {
+        if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
 
@@ -197,9 +197,9 @@ router.put(
     });
   
     await event.delete();
-    await Promise.all(
-      eventParticipants.map((participant) => participant.delete())
-    );
+  await Promise.all(
+    eventParticipants.map((participant) => participant.delete())
+  );
   
     return res.status(200).send({}).end();
   });

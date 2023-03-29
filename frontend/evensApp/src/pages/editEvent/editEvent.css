@@ -1,0 +1,18 @@
+.edit-event-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-event-form>button {
+    margin-top: 16px !important;
+}
+
+.edit-event-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.edit-event-wrapper>form {
+    width: 500px;
+}

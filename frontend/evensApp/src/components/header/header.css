@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    height: 48px;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background-color: #363636;
+}
+
+.appName {
+    display: flex;
+    align-items: center;
+}
+
+.appIcon {
+    font-size: 48px !important;
+    transform: rotate(15deg);
+}
+
+.linksAndAppName { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 0.5;
+}
+
+.links > * {
+    margin-right: 16px !important;
+}
+
+.selectedLink {
+    cursor: text !important;
+    text-decoration: none !important;
+    color: white !important;
+}
