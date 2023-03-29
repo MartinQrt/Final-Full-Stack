@@ -11,7 +11,7 @@ const participantSchema = new Schema({
     fullName: {
         type: String,
         trim: true,
-        reguired: true,
+        required: true,
     },
     event: {
         type: Schema.Types.ObjectId,

@@ -45,9 +45,10 @@ router.post("/login", async (req, res) => {
         issuedAt,
     };
 
+    
     const token = jwt.sign(userPayload, process.env.JWT_SECRET, {
         algorithm: "HS256",
-        expiresIn: process.env.JWT_EXPIRIES_IN,
+        expiresIn: process.env.JWT_EXPIRES_IN,
     });
 
     const response = {
@@ -79,7 +80,7 @@ router.post(
     async (req: TypedRequest<CreateParticipantRequest>, res) => {
         const errors = validationResult(req);
 
-        if (!errors.isEmty()) {
+        if (!errors.isEmpty()) {
             return res.status(400).json({ errors: errors.array() });
         }
 
@@ -108,19 +109,19 @@ router.post(
 );
 
 router.put(
-    "/events/:id",
-    isLoggedIn,
-    async (req: TypedRequest<UpdateEventRequest>, res) => {
-      const id = req.params.id;
-  
-      const updatedEvent = await EventsModel.findOneAndUpdate(
-        { _id: id },
-        { ...req.body }
-      );
-  
-      return res.send(updatedEvent).end();
-    }
-  );
+  "/events/:id",
+  isLoggedIn,
+  async (req: TypedRequest<UpdateEventRequest>, res) => {
+    const id = req.params.id;
+
+    const updatedEvent = await EventsModel.findOneAndUpdate(
+      { _id: id },
+      { ...req.body }
+    );
+
+    return res.send(updatedEvent).end();
+  }
+);
   
   router.put(
     "/participants/:id",
